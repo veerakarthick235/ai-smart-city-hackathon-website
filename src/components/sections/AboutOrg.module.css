@@ -1,0 +1,69 @@
+.aboutOrgContent {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.missionCard {
+  text-align: center;
+  padding: 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.missionCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: var(--primary);
+}
+
+.missionCard p {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.valueCard {
+  padding: 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.valueIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.valueCard h4 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.valueCard p {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .missionCard {
+    padding: 32px 24px;
+  }
+  
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}

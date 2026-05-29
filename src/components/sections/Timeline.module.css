@@ -1,0 +1,104 @@
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gradient-primary);
+  transform: translateX(-50%);
+  opacity: 0.3;
+}
+
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 0 40px 40px;
+}
+
+.timelineLeft {
+  left: 0;
+  text-align: right;
+}
+
+.timelineRight {
+  left: 50%;
+  text-align: left;
+}
+
+.timelineDot {
+  position: absolute;
+  top: 32px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+  z-index: 1;
+}
+
+.timelineLeft .timelineDot {
+  right: -8px;
+}
+
+.timelineRight .timelineDot {
+  left: -8px;
+}
+
+.timelineCard {
+  padding: 24px;
+}
+
+.timelineCard h4 {
+  margin: 12px 0 8px;
+  font-size: 1.1rem;
+}
+
+.timelineCard p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  justify-content: inherit;
+}
+
+.timelineLeft .timelineCard p {
+  justify-content: flex-end;
+}
+
+.timelineRight .timelineCard p {
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .timelineLine {
+    left: 16px;
+  }
+  .timelineItem {
+    width: 100%;
+    padding: 0 0 40px 48px;
+    text-align: left;
+  }
+  .timelineLeft {
+    text-align: left;
+  }
+  .timelineRight {
+    left: 0;
+  }
+  .timelineDot {
+    left: 8px !important;
+    right: auto !important;
+    top: 24px;
+  }
+  .timelineLeft .timelineCard p,
+  .timelineRight .timelineCard p {
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,437 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ---- HERO ---- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 120px 0 80px;
+  overflow: hidden;
+}
+
+.heroGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(ellipse, rgba(0, 212, 255, 0.12) 0%, rgba(139, 92, 246, 0.08) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  max-width: 900px;
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--text-secondary);
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.statsRow {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ---- THEMES ---- */
+.themesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.themeCard {
+  text-align: center;
+  padding: 32px 24px;
+}
+
+.themeCard h4 {
+  margin: 16px 0 8px;
+  font-size: 1.05rem;
+}
+
+.themeCard p {
+  font-size: 0.9rem;
+}
+
+.themeIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: #fff;
+}
+
+/* ---- JUDGES ---- */
+.judgesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.judgeCard {
+  text-align: center;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.judgeAvatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.judgeName {
+  font-size: 1rem;
+}
+
+.judgeTitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.linkedinBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 119, 181, 0.12);
+  color: #0077B5;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all var(--transition-base);
+}
+
+.linkedinBtn:hover {
+  background: rgba(0, 119, 181, 0.25);
+}
+
+/* ---- PRIZES ---- */
+.prizesRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.prizeCard {
+  text-align: center;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.prizeGrand {
+  transform: scale(1.05);
+  border-color: rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
+}
+
+.prizeIcon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prizeRewards {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prizeRewards li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.prizeRewards li svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ---- CRITERIA ---- */
+.criteriaList {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---- TIMELINE ---- */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gradient-primary);
+  transform: translateX(-50%);
+  opacity: 0.3;
+}
+
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 0 40px 40px;
+}
+
+.timelineLeft {
+  left: 0;
+  text-align: right;
+}
+
+.timelineRight {
+  left: 50%;
+  text-align: left;
+}
+
+.timelineDot {
+  position: absolute;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+}
+
+.timelineLeft .timelineDot {
+  right: -8px;
+}
+
+.timelineRight .timelineDot {
+  left: -8px;
+}
+
+.timelineCard {
+  padding: 20px;
+}
+
+.timelineCard h4 {
+  margin: 8px 0 4px;
+  font-size: 1rem;
+}
+
+.timelineCard p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  justify-content: inherit;
+}
+
+/* ---- WINNERS ---- */
+.winnersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.winnerCard {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.winnerBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+
+.winnerBadge svg {
+  color: var(--warning);
+}
+
+.winnerTeam {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.winnerLinks {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ---- RULES ---- */
+.rulesList {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ruleItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.ruleIcon {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ruleItem span {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ---- TEAM ---- */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.teamCard {
+  text-align: center;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.teamAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gradient-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .prizesRow {
+    grid-template-columns: 1fr;
+  }
+  .prizeGrand {
+    transform: none;
+  }
+  .timelineLine {
+    left: 16px;
+  }
+  .timelineItem {
+    width: 100%;
+    padding: 0 0 32px 48px;
+    text-align: left;
+  }
+  .timelineLeft {
+    text-align: left;
+  }
+  .timelineRight {
+    left: 0;
+  }
+  .timelineDot {
+    left: 8px !important;
+    right: auto !important;
+  }
+  .timelineCard p {
+    justify-content: flex-start;
+  }
+  .statsRow {
+    gap: 20px;
+  }
+}

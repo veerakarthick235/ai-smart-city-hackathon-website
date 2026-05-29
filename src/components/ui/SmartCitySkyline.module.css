@@ -1,0 +1,122 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.skyline {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.building {
+  fill: url(#skylineGradient);
+  opacity: 0.85;
+}
+
+.buildingFloat1 {
+  composes: building;
+  animation: skylineFloat 6s ease-in-out infinite;
+}
+
+.buildingFloat2 {
+  composes: building;
+  animation: skylineFloat 8s ease-in-out infinite 1s;
+}
+
+.buildingFloat3 {
+  composes: building;
+  animation: skylineFloat 7s ease-in-out infinite 2s;
+}
+
+.window {
+  fill: #00D4FF;
+  opacity: 0.7;
+}
+
+.windowGlow1 {
+  composes: window;
+  animation: windowBlink 3s ease-in-out infinite;
+}
+
+.windowGlow2 {
+  composes: window;
+  animation: windowBlink 4s ease-in-out infinite 0.5s;
+}
+
+.windowGlow3 {
+  composes: window;
+  animation: windowBlink 2.5s ease-in-out infinite 1.2s;
+}
+
+.windowGlow4 {
+  composes: window;
+  animation: windowBlink 5s ease-in-out infinite 2s;
+}
+
+.windowGlow5 {
+  composes: window;
+  animation: windowBlink 3.5s ease-in-out infinite 0.8s;
+}
+
+.windowPurple {
+  fill: #8B5CF6;
+  opacity: 0.6;
+  animation: windowBlink 4.5s ease-in-out infinite 1.5s;
+}
+
+.tower {
+  fill: url(#skylineGradient);
+  opacity: 0.9;
+}
+
+.signal {
+  fill: none;
+  stroke: #00D4FF;
+  stroke-width: 1.5;
+  opacity: 0;
+  animation: signalPulse 2.5s ease-out infinite;
+}
+
+.signalDelayed {
+  composes: signal;
+  animation-delay: 0.8s;
+}
+
+.signalDelayed2 {
+  composes: signal;
+  animation-delay: 1.6s;
+}
+
+@keyframes skylineFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes windowBlink {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes signalPulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}

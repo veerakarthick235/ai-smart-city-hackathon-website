@@ -1,0 +1,174 @@
+.page {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.verifyContainer {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.searchForm {
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.inputWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 16px;
+  color: var(--text-secondary);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  transition: all var(--transition-base);
+}
+
+.searchInput:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+}
+
+.verifyBtn {
+  padding: 16px 32px;
+  height: 56px;
+  min-width: 120px;
+}
+
+.spinner {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.resultCard {
+  padding: 48px;
+  text-align: center;
+}
+
+.successCard {
+  border: 1px solid rgba(6, 255, 165, 0.3);
+  box-shadow: 0 0 40px rgba(6, 255, 165, 0.1);
+}
+
+.successIcon {
+  color: var(--accent);
+  margin: 0 auto 24px;
+}
+
+.resultHeader {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.resultHeader h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.resultDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  background: var(--bg-secondary);
+  padding: 32px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.detailRow:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.detailLabel {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.detailValue {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: right;
+  max-width: 60%;
+}
+
+.errorCard {
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  box-shadow: 0 0 40px rgba(255, 71, 87, 0.1);
+}
+
+.errorIcon {
+  color: var(--danger);
+  margin: 0 auto 24px;
+}
+
+.errorCard h2 {
+  margin-bottom: 16px;
+  font-size: 1.8rem;
+}
+
+.errorCard p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .searchForm {
+    flex-direction: column;
+    padding: 16px;
+  }
+  
+  .verifyBtn {
+    width: 100%;
+  }
+
+  .resultCard {
+    padding: 32px 20px;
+  }
+  
+  .detailRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .detailValue {
+    text-align: left;
+    max-width: 100%;
+  }
+}

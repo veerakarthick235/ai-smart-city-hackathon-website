@@ -1,0 +1,218 @@
+.page {
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  padding: 160px 0 100px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.heroContent h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.heroBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.missionSection {
+  background: var(--bg-secondary);
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.missionCard {
+  padding: 48px;
+}
+
+.missionCard h3 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: var(--primary);
+}
+
+.missionCard p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.statsSection {
+  padding: 80px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.statIcon {
+  color: var(--secondary);
+}
+
+.statItem span {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.valueCard {
+  padding: 32px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.valueIcon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.valueCard h4 {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+
+.valueCard p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.leadershipSection {
+  background: var(--bg-secondary);
+}
+
+.leaderCard {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.leaderAvatar {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  border-radius: var(--radius-xl);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3rem;
+  color: #fff;
+  box-shadow: var(--shadow-glow);
+}
+
+.leaderInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.leaderInfo h3 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.leaderInfo p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+  
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .missionGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .leaderCard {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+    align-items: center;
+  }
+  
+  .leaderInfo {
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsGrid, .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}

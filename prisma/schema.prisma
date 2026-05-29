@@ -1,0 +1,182 @@
+generator client {
+  provider        = "prisma-client-js"
+  engineType      = "library"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Event {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug        String   @unique
+  title       String
+  tagline     String?
+  description String?
+  startDate   DateTime
+  endDate     DateTime
+  location    String   @default("Global Online")
+  status      String   @default("upcoming")
+  bannerImage String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  judges        Judge[]
+  participants  Participant[]
+  projects      Project[]
+  winners       Winner[]
+  certificates  Certificate[]
+  sponsors      Sponsor[]
+  announcements Announcement[]
+  testimonials  Testimonial[]
+  themes        Theme[]
+  prizes        Prize[]
+  timelineItems TimelineItem[]
+  rules         Rule[]
+  teamMembers   TeamMember[]
+}
+
+model Judge {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  title    String
+  company  String?
+  bio      String?
+  photo    String?
+  linkedin String?
+  order    Int    @default(0)
+  eventId  String @db.ObjectId
+  event    Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model Participant {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  team      String?
+  eventId   String   @db.ObjectId
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model Project {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  team        String
+  members     String
+  techStack   String
+  description String?
+  category    String
+  demoLink    String?
+  github      String?
+  screenshot  String?
+  eventId     String   @db.ObjectId
+  event       Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+}
+
+model Winner {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  projectName String
+  teamName    String
+  members     String
+  description String?
+  category    String
+  github      String?
+  demoVideo   String?
+  screenshot  String?
+  feedback    String?
+  eventId     String  @db.ObjectId
+  event       Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model Certificate {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  certId    String   @unique
+  name      String
+  role      String
+  eventId   String   @db.ObjectId
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  issueDate DateTime @default(now())
+  status    String   @default("valid")
+}
+
+model Sponsor {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  logo    String?
+  url     String?
+  tier    String @default("partner")
+  eventId String @db.ObjectId
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model Announcement {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  content   String
+  eventId   String   @db.ObjectId
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model Testimonial {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  role    String
+  quote   String
+  photo   String?
+  eventId String  @db.ObjectId
+  event   Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model Theme {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  icon        String?
+  order       Int     @default(0)
+  eventId     String  @db.ObjectId
+  event       Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model Prize {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  rewards     String
+  order       Int     @default(0)
+  eventId     String  @db.ObjectId
+  event       Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model TimelineItem {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  date        DateTime?
+  description String?
+  status      String    @default("upcoming")
+  order       Int       @default(0)
+  eventId     String    @db.ObjectId
+  event       Event     @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model Rule {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  content String
+  order   Int    @default(0)
+  eventId String @db.ObjectId
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
+
+model TeamMember {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  role     String
+  photo    String?
+  linkedin String?
+  order    Int     @default(0)
+  eventId  String  @db.ObjectId
+  event    Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+}
