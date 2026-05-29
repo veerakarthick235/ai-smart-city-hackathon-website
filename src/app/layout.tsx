@@ -2,33 +2,49 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    "https://ai-smart-city-hackathon-website.vercel.app"
+  ),
+
   title: {
     default: "Innovation Hacks — Building the Future Through Hackathons",
     template: "%s | Innovation Hacks",
   },
+
   description:
-    "Innovation Hacks is a global hackathon platform that brings together the brightest minds to build AI-powered solutions for smart cities, healthcare, sustainability, and beyond.",
+    "Innovation Hacks is a global hackathon platform bringing together innovators, developers, AI enthusiasts, and future builders to solve real-world challenges.",
+
   keywords: [
-    "hackathon",
-    "AI",
-    "smart city",
-    "innovation",
-    "coding competition",
-    "artificial intelligence",
-    "machine learning",
-    "IoT",
     "Innovation Hacks",
+    "Hackathon",
+    "AI Hackathon",
+    "Smart City",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "IoT",
+    "Technology",
+    "Innovation",
+    "Coding Competition",
+    "Student Hackathon",
+    "Global Hackathon",
   ],
-  authors: [{ name: "Innovation Hacks" }],
+
+  authors: [
+    {
+      name: "Innovation Hacks",
+    },
+  ],
+
   creator: "Innovation Hacks",
+
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://innovationhacks.dev",
+    url: "https://ai-smart-city-hackathon-website.vercel.app",
     siteName: "Innovation Hacks",
     title: "Innovation Hacks — Building the Future Through Hackathons",
     description:
-      "Join the world's most innovative hackathon platform. Build AI-powered solutions for real-world challenges.",
+      "Join global hackathons and build AI-powered solutions for real-world challenges.",
     images: [
       {
         url: "/og-image.png",
@@ -38,21 +54,24 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Innovation Hacks",
     description:
-      "Join the world's most innovative hackathon platform.",
+      "Join global hackathons and build AI-powered solutions for real-world challenges.",
     images: ["/og-image.png"],
   },
+
   robots: {
     index: true,
     follow: true,
   },
+
   manifest: "/manifest.json",
 };
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default function RootLayout({
   children,
@@ -60,16 +79,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+        />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <meta name="theme-color" content="#0A0A1A" />
+
+        <meta
+          name="theme-color"
+          content="#0A0A1A"
+        />
       </head>
+
       <body>
         <ThemeScript />
         {children}
@@ -80,12 +111,26 @@ export default function RootLayout({
 
 function ThemeScript() {
   const script = `
-    (function() {
+    (function () {
       try {
-        var theme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch(e) {}
+        const theme =
+          localStorage.getItem("theme") || "dark";
+
+        document.documentElement.setAttribute(
+          "data-theme",
+          theme
+        );
+      } catch (e) {
+        console.error(e);
+      }
     })();
   `;
-  return <script dangerouslySetInnerHTML={{ __html: script }} />;
+
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: script,
+      }}
+    />
+  );
 }
