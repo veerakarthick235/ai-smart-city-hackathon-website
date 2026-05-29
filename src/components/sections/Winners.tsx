@@ -125,7 +125,9 @@ export default function Winners() {
                     {winner.category}
                   </span>
                   <h3 className={styles.cardTitle}>{winner.label}</h3>
-                  <p className={styles.comingSoon}>{winner.teamName || winner.label}</p>
+                  <p className={styles.comingSoon}>
+                   {winner.label}
+                 </p>
                 </div>
               </motion.div>
             );
